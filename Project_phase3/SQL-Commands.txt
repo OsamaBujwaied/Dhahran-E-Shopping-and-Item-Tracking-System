@@ -1,0 +1,21 @@
+-- create new customer 
+
+INSERT INTO `customer` (`c_id`, `name`, `email`, `password`, `phone`) VALUES (NULL, 'yahya', 'example@gmail.com', MD5('12321'), '0503456789')
+
+INSERT INTO `customer` (`c_id`, `name`, `email`, `password`, `phone`) VALUES (NULL, 'salem', 'example@outlook.com', MD5('123123'), '0501234567');
+
+-- create new card 
+
+INSERT INTO `card` (`card_number`, `expiration_date`, `secret_num`, `holders_name`, `c_id`) VALUES (MD5('1234123412341234'), '01/24', MD5('123'), 'yahya althubaity', '1');
+
+INSERT INTO `card` (`card_number`, `expiration_date`, `secret_num`, `holders_name`, `c_id`) VALUES (MD5('0123456789123456'), '01/24', MD5('321'), 'salem mohhamed', '2');
+
+-- check if user exist
+
+SELECT * FROM customer WHERE email = 'example@gmail.com' AND password = MD5('12321');
+
+
+-- check card details 
+
+SELECT * FROM card customer WHERE card_number = MD5('1234123412341234') AND expiration_date = '01/24' AND secret_num = MD5('123') AND holders_name = 'yahya althubaity';
+
